@@ -1,0 +1,12 @@
+::res://::1442780964
+ball.png::ImageTexture::1387233244::
+gui.gd::GDScript::1442778739::
+gui.scn::PackedScene::1442777811::
+icon.png::ImageTexture::1442697990::
+left_pallete.png::ImageTexture::1387233173::
+pong.gd::GDScript::1442780964::
+pong.scn::PackedScene::1442779979::
+right_pallete.png::ImageTexture::1387233198::
+sayHello.gd::GDScript::1442778739::
+sayHello.scn::PackedScene::1442701521::
+separator.png::ImageTexture::1387233336::
