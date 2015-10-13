@@ -4,12 +4,12 @@ var points = []
 var moving = false
 var player
 var navigation
-var action
 var target_pos = Vector2(0,0)
+var test_player_pos
+var isTestFrame = true
 
 func _ready():
 	player = get_tree().get_nodes_in_group("player")[0]
-	action = get_node("../action")
 	navigation = get_tree().get_nodes_in_group("navigation")[0]
 	set_fixed_process(true)
 
@@ -18,9 +18,20 @@ func _fixed_process(delta):
 		move(delta, target_pos)
 	if (abs(player.get_global_pos().x - target_pos.x) < 5 && abs(player.get_global_pos().y - target_pos.y) < 5):
 		end_move()
+	if (OS.get_frames_drawn() % 5 == 0):
+		if (isTestFrame):
+			test_player_pos = player.get_global_pos()
+		elif (player.get_global_pos() == test_player_pos):
+			end_move()
+		if (isTestFrame):
+			isTestFrame = false
+		else:
+			isTestFrame = true
+	
 
 func end_move():
 	moving = false
+	player.complete_current_action()
 
 func _draw():
 	if points.size() > 1:
